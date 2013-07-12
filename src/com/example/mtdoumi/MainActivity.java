@@ -15,6 +15,20 @@ public class MainActivity extends Activity {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_main);
 	
+		ImageButton gogrouplist = (ImageButton)findViewById(R.id.mainbutton1);
+		gogrouplist.setOnClickListener(new ImageButton.OnClickListener(){
+
+			@Override
+			public void onClick(View v) {
+				// TODO Auto-generated method stub
+				Intent intent2 = new Intent(MainActivity.this, GroupListActivity.class);
+    			startActivity(intent2);
+    		
+			}	
+			
+		}
+		);
+		
 		ImageButton goinfo = (ImageButton)findViewById(R.id.goinfo);
 		goinfo.setOnClickListener(new ImageButton.OnClickListener(){
 

@@ -7,14 +7,14 @@
     tools:context=".NewGroupActivity" >
 
     <TextView
-        android:id="@+id/textView1"
+        android:id="@+id/viewgroupname"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="그룹 이름"
         android:textAppearance="?android:attr/textAppearanceLarge" />
 
     <EditText
-        android:id="@+id/editText1"
+        android:id="@+id/tbGroupname"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:ems="10" >
@@ -22,48 +22,48 @@
     </EditText>
 
     <TextView
-        android:id="@+id/textView2"
+        android:id="@+id/textboy"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="남자"
         android:textAppearance="?android:attr/textAppearanceLarge" />
 
     <EditText
-        android:id="@+id/editText2"
+        android:id="@+id/tbBoy"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:ems="10"
         android:inputType="number" />
 
     <TextView
-        android:id="@+id/textView3"
+        android:id="@+id/textgirl"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="여자"
         android:textAppearance="?android:attr/textAppearanceLarge" />
 
     <EditText
-        android:id="@+id/editText3"
+        android:id="@+id/tbGirl"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:ems="10"
         android:inputType="number" />
 
     <TextView
-        android:id="@+id/textView4"
+        android:id="@+id/textplace"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="MT 장소"
         android:textAppearance="?android:attr/textAppearanceLarge" />
 
     <EditText
-        android:id="@+id/editText4"
+        android:id="@+id/tbPlace"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:ems="10" />
 
     <ImageButton
-        android:id="@+id/imageButton1"
+        android:id="@+id/makinggroup"
         android:layout_width="355dp"
         android:layout_height="wrap_content"
         android:src="@drawable/darkbluebutton" />

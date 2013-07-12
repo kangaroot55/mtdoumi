@@ -26,7 +26,7 @@
 		    android:gravity="bottom" >
 
 		    <ImageButton
-		        android:id="@+id/imageButton1"
+		        android:id="@+id/newgroup"
 		        android:layout_width="match_parent"
 		        android:layout_height="160dp"
 		        android:layout_weight="3"
