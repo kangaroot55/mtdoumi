@@ -15,6 +15,21 @@ public class MainActivity extends Activity {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_main);
 	
+		
+		ImageButton gotab = (ImageButton)findViewById(R.id.mainbutton2);
+		gotab.setOnClickListener(new ImageButton.OnClickListener(){
+
+			@Override
+			public void onClick(View v) {
+				// TODO Auto-generated method stub
+				Intent tabintent = new Intent(MainActivity.this, TabWidgetActivity.class);
+    			startActivity(tabintent);
+    		
+			}	
+			
+		}
+		);
+		
 		ImageButton gogrouplist = (ImageButton)findViewById(R.id.mainbutton1);
 		gogrouplist.setOnClickListener(new ImageButton.OnClickListener(){
 

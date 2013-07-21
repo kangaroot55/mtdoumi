@@ -5,6 +5,8 @@ import java.util.ArrayList;
 
 import android.app.Activity;
 import android.content.Intent;
+import android.database.Cursor;
+import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Adapter;
@@ -42,15 +44,23 @@ public class GroupListActivity extends Activity {
 	private ArrayList<String> arrayList;
 	private ArrayAdapter<String> adapter;
 	
+	SQLiteDatabase db;
+	DB_Open db_open;
+	
+	
 	
 	@Override
+	
 	public void onCreate(Bundle savedInstanceState) {
 	    super.onCreate(savedInstanceState);
 	    setContentView(R.layout.activity_grouplist);
 	    
 	    
 	    
-	    // Making New Group
+	    db_open = new DB_Open(this);
+		db = db_open.getWritableDatabase();
+		
+		// Making New Group
 	    
 	    ImageButton gonewgroup = (ImageButton)findViewById(R.id.newgroup);
 	    gonewgroup.setOnClickListener(new ImageButton.OnClickListener(){
@@ -67,6 +77,11 @@ public class GroupListActivity extends Activity {
 		);
 		
 
+	    
+	    Cursor c = db.rawQuery("SELECT groupname FROM db_user" , null);
+	    c.moveToFirst();
+	    
+	    
 		// ListView
 	    arrayList = new ArrayList<String>();
 	    
@@ -76,17 +91,32 @@ public class GroupListActivity extends Activity {
 	    listView.setAdapter(adapter);
 	    listView.setChoiceMode(ListView.CHOICE_MODE_SINGLE);
 	    
+	    
+	    for(int i=0;i<c.getCount();i++){
+	    	adapter.add(c.getString(0));
+	    	c.moveToNext();
+	    }
+	    
+	    adapter.notifyDataSetChanged();
+	    
+	    
 	    listView.setOnItemClickListener(new OnItemClickListener(){
 
 			@Override
 			public void onItemClick(AdapterView<?> arg0, View v, int position, long id) {
 				// TODO Auto-generated method stub
+		
 				
 				Intent a_i = new Intent(GroupListActivity.this, Group1Activity.class);
-				a_i.putExtra("groupname", li[position].groupname);
-				a_i.putExtra("boy", li[position].boy);
-				a_i.putExtra("girl", li[position].girl);
-				a_i.putExtra("place", li[position].place);
+				
+				Cursor c = db.rawQuery("SELECT groupname, boy, girl, place FROM db_user",null);
+			    c.moveToPosition(position);
+			    
+			    
+				a_i.putExtra("groupname", c.getString(0));
+				a_i.putExtra("boy", c.getString(1));
+				a_i.putExtra("girl", c.getString(2));
+				a_i.putExtra("place", c.getString(3));
 				startActivity(a_i);
 				
 			}
@@ -109,7 +139,8 @@ public class GroupListActivity extends Activity {
 					String n2 = extraBundle.getString("boy");
 					String n3 = extraBundle.getString("girl");
 					String n4 = extraBundle.getString("place");
-					li[licnt++]=new grouping(n1,n2,n3,n4);
+//					li[licnt++]=new grouping(n1,n2,n3,n4);
+//					db.execSQL("INSERT INTO db_user(groupname, boy, girl, place) VALUES ('" + n1 + "', '" + n2 + "', '" + n3 + "', '" + n4 + "')");
 					
 					adapter.add(n1);
 					adapter.notifyDataSetChanged();
