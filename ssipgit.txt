@@ -1,0 +1,13 @@
+git clone git@github.com:kangaroot55/mtdoumi -> 깃에서 첨부터 받아올때
+
+git add .
+
+git commit -m "하고싶은 말 헤헤"
+
+git status
+
+git log 로그 볼떄 ^^
+
+git push origin master -> 깃허브에 올릴때
+
+git pull  -> 바뀐것만 받아올떄 

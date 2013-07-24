@@ -106,7 +106,9 @@ public class GroupListActivity extends Activity {
 			public void onItemClick(AdapterView<?> arg0, View v, int position, long id) {
 				// TODO Auto-generated method stub
 		
-				
+				/*
+				 * Group1Activity에 쏴주는거
+				 * 
 				Intent a_i = new Intent(GroupListActivity.this, Group1Activity.class);
 				
 				Cursor c = db.rawQuery("SELECT groupname, boy, girl, place FROM db_user",null);
@@ -118,7 +120,11 @@ public class GroupListActivity extends Activity {
 				a_i.putExtra("girl", c.getString(2));
 				a_i.putExtra("place", c.getString(3));
 				startActivity(a_i);
+				*/
+		
 				
+				Intent gotabintent = new Intent(GroupListActivity.this, TabWidgetActivity.class);
+				startActivity(gotabintent);
 			}
 	    	
 	    });
@@ -140,7 +146,8 @@ public class GroupListActivity extends Activity {
 					String n3 = extraBundle.getString("girl");
 					String n4 = extraBundle.getString("place");
 //					li[licnt++]=new grouping(n1,n2,n3,n4);
-//					db.execSQL("INSERT INTO db_user(groupname, boy, girl, place) VALUES ('" + n1 + "', '" + n2 + "', '" + n3 + "', '" + n4 + "')");
+					
+					db.execSQL("INSERT INTO db_user(groupname, boy, girl, place) VALUES ('" + n1 + "', '" + n2 + "', '" + n3 + "', '" + n4 + "')");
 					
 					adapter.add(n1);
 					adapter.notifyDataSetChanged();
