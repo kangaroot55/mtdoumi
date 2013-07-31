@@ -21,8 +21,6 @@ public class Tab1Activity extends Activity {
 	private ListView listView;
 	private ArrayAdapter<String> adapter;
 	SQLiteDatabase db;
-	DB_Open db_open;
-	
 	/** Called when the activity is first created. */
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
@@ -55,16 +53,19 @@ public class Tab1Activity extends Activity {
 	    ImageButton addperson = (ImageButton)findViewById(R.id.addperson);
 	    addperson.setOnClickListener(new ImageButton.OnClickListener(){
 
+			DB_Open db_open;
+
 			@Override
 			public void onClick(View v) {
 				// TODO Auto-generated method stub
+				
+				
 				
 				Context mContext = getApplicationContext();
 	             LayoutInflater inflater = (LayoutInflater) mContext.getSystemService(LAYOUT_INFLATER_SERVICE);
 	             final View layout = inflater.inflate(R.layout.custom_dialog,(ViewGroup) findViewById(R.id.layout_root));
 	                   
-	             AlertDialog.Builder aDialog = new AlertDialog.Builder(Tab1Activity.this);//여기서buttontest는 패키지이름
-	             aDialog.setTitle("이름을 입력해주세요~~");
+	             AlertDialog.Builder aDialog = new AlertDialog.Builder(Tab1Activity.this);//�ш린��uttontest���⑦�吏��由�	             aDialog.setTitle("�대�������댁＜�몄�~~");
 	             aDialog.setView(layout);
 	                   
 	             aDialog.setPositiveButton("확인", new DialogInterface.OnClickListener() {
@@ -78,7 +79,7 @@ public class Tab1Activity extends Activity {
 	    
 	            	  TextView total;
 	            	  total = (TextView)findViewById(R.id.total);
-	            	  total.setText("총 "+adapter.getCount()+"명");
+	            	  total.setText("총"+adapter.getCount()+"명");
 	          	    
 	              }
 	             });
